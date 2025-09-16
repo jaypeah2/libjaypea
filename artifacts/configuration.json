@@ -1,6 +1,6 @@
 {
-	"hostname": "localhost",
-	"public_directory": "../affable-escapade",
+	"hostname": "libjaypea-db",
+	"public_directory": "/opt/affable-escapade",
 	"http_port": "10080",
 	"https_port": "10443",
 	"tanks_port": "11000",
@@ -8,8 +8,8 @@
 	"sendgrid_key": "https://sendgrid.com/docs/ui/account-and-settings/api-keys/",
 	"secret_captcha_url": "https://example.com/captcha",
 	"cache_megabytes": "30",
-	"postgresql_connection": "dbname=webservice user=postgres password=abc123",
-	"ssl_certificate": "extras/self-signed-ssl/ssl.crt",
-	"ssl_private_key":"extras/self-signed-ssl/ssl.key",
+	"postgresql_connection": "host=libjaypea-db dbname=webservice user=postgres password=abc123",
+	"ssl_certificate": "/opt/libjaypea/extras/self-signed-ssl/ssl.crt",
+	"ssl_private_key":"/opt/libjaypea/extras/self-signed-ssl/ssl.key",
 	"keyfile":"extras/keyfile"
 }

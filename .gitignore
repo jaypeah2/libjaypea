@@ -1,5 +1,9 @@
+.env
 gmon.out
+
 *.pyc
+
 .vscode/
+
 .bash_history
 .viminfo

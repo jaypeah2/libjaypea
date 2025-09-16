@@ -1,5 +1,5 @@
 {
-	"hostname": "localhost",
+	"hostname": "libjaypea-db",
 	"public_directory": "../affable-escapade",
 	"http_port": "10080",
 	"https_port": "10443",

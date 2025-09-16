@@ -3,22 +3,25 @@ version: "3.9"
 networks:
   libjaypea_network:
     driver: bridge
-    name: revops_network
+    name: libjaypea_network
+
+volumes:
+  postgresql-data:
 
 services:
-
+      
   libjaypea-db:
     container_name: libjaypea-db
-    image: postgres:latest
+    image: postgres:13
     environment:
       - POSTGRES_DB=webservice
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=abc123
+      # - POSTGRES_HOST_AUTH_METHOD=md5
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
-    # https://github.com/felipewom/docker-compose-postgres
-    # volumes: 
-    #   - db:/var/lib/postgresql/data
+      - 5432:5432
     networks:
       - libjaypea_network
 
@@ -40,10 +43,15 @@ services:
     build:
       context: ./
       dockerfile: ./dockerfile
+      args:
+        DB_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./:/opt/libjaypea
+      - ./data:/var/lib/pgsql/data
     image: libjaypea:latest
     ports:
-      - 80:80
+      - 10080:10080
+      - 10443:10443
+      - 11000:11000
     networks:
       - libjaypea_network
